@@ -7,7 +7,7 @@ public class PlayerBase : MonoBehaviour
 
     public float moveSpeed = 5f;
     public bool facingRight;
-    private bool grndCheck;
+    public bool grndCheck;
     private bool inAirCheck;
     public float jumpHeight;
     public LayerMask grndLayer;
@@ -50,7 +50,7 @@ public class PlayerBase : MonoBehaviour
         }
     }
 
-    private void Jump()
+    public void Jump()
     {
         if (Input.GetButtonDown("Jump") && grndCheck)
         {

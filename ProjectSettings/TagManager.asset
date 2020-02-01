@@ -9,6 +9,10 @@ TagManager:
   - TSocket
   - RSocket
   - pickup
+  - gun
+  - torch
+  - gunobject
+  - rocketobject
   layers:
   - Default
   - TransparentFX

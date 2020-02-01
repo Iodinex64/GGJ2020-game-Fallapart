@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 904832079986528381}
+  - component: {fileID: 561313029}
   m_Layer: 0
   m_Name: RSocket
   m_TagString: RSocket
@@ -30,6 +31,18 @@ Transform:
   m_Father: {fileID: 3006163959274914868}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &561313029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307883851242099218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e7aa73b95513844a61215029f243fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &324004828947802347
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,6 +52,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8094642893554169028}
+  - component: {fileID: 1016652446453801177}
   m_Layer: 0
   m_Name: LSocket
   m_TagString: LSocket
@@ -60,6 +74,18 @@ Transform:
   m_Father: {fileID: 3006163959274914868}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1016652446453801177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324004828947802347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f7318b917d6d4458fe1f469167178d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8107182394523775084
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +132,7 @@ GameObject:
   - component: {fileID: 8713817729228911397}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,9 +190,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 768732765
+  m_SortingLayer: 2
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 882d84ffe8ad78b43a90420743bcf4a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -210,6 +236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  facingRight: 0
+  grndCheck: 0
   jumpHeight: 10
   grndLayer:
     serializedVersion: 2
@@ -293,7 +321,7 @@ GameObject:
   - component: {fileID: 7367239272682377459}
   - component: {fileID: 8174750034772451865}
   - component: {fileID: 481786974}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ComponentFinder
   m_TagString: ComponentFinder
   m_Icon: {fileID: 0}
@@ -329,7 +357,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 1
 --- !u!114 &481786974
 MonoBehaviour:
   m_ObjectHideFlags: 0

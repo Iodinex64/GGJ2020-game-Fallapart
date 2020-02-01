@@ -6,7 +6,7 @@ public class GunComponent : MonoBehaviour
 {
     public GameObject bullet;
     public Transform shotPoint;
-    public bool isEquipped;
+    public bool isEquipped = false;
 
     void Update()
     {
