@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
-
+    public bool hasAtLeastOneComponent = false;
     public float moveSpeed = 5f;
     public bool facingRight;
     public bool grndCheck;
@@ -27,6 +27,17 @@ public class PlayerBase : MonoBehaviour
         Jump();
         FlipSprite();
         CheckGrounded();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 13) //Danger layer
+        {
+            if (!hasAtLeastOneComponent)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void CheckGrounded()
