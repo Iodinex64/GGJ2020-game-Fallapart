@@ -13,6 +13,9 @@ TagManager:
   - torch
   - gunobject
   - rocketobject
+  - rocket
+  - globallight
+  - torchobject
   layers:
   - Default
   - TransparentFX
