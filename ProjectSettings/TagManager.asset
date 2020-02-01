@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ComponentFinder
+  - LSocket
+  - TSocket
+  - RSocket
+  - pickup
   layers:
   - Default
   - TransparentFX
@@ -13,10 +18,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Pellet
+  - PickupCollider
+  - Player
   - 
   - 
   - 
@@ -40,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 328936857
+    locked: 0
+  - name: Foreground
+    uniqueID: 768732765
     locked: 0
