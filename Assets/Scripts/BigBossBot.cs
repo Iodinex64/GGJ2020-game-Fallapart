@@ -10,6 +10,8 @@ public class BigBossBot : MonoBehaviour
     public int hp;
     public Vector3 scale;
     public bool speedSwitch;
+    [SerializeField]
+    GameObject sign;
 
     void Start()
     {
@@ -40,6 +42,7 @@ public class BigBossBot : MonoBehaviour
             }
             if( hp <= 0)
             {
+                sign.SetActive(true);
                 Destroy(gameObject);
             }
         }
