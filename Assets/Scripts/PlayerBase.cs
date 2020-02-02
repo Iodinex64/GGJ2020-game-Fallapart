@@ -37,8 +37,16 @@ public class PlayerBase : MonoBehaviour
     {
         if (collision.gameObject.tag == "Danger")
         {
-            fc.DropWeapons();
-            Invoke("MarkForDeathMethod", 3f);
+            if (hasAtLeastOneComponent)
+            {
+                fc.DropWeapons();
+                Invoke("MarkForDeathMethod", 3f);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
             if (!hasAtLeastOneComponent && MarkForDeath)
             {
                 Destroy(gameObject);
