@@ -26,7 +26,7 @@ public class TorchScript : MonoBehaviour
         }
         else
         {
-            gLight.intensity = 0.15f;
+            gLight.intensity = 0.25f;
         }
     }
 

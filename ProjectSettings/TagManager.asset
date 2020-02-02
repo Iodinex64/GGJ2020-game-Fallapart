@@ -16,6 +16,7 @@ TagManager:
   - rocket
   - globallight
   - torchobject
+  - Danger
   layers:
   - Default
   - TransparentFX

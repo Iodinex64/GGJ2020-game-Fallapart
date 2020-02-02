@@ -14,10 +14,12 @@ public class PlayerBase : MonoBehaviour
     public Transform grndCheckTransform;
     private Rigidbody2D rb;
     private Animator anim;
+    private FindComponents fc;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        fc = FindObjectOfType<FindComponents>();
         anim = GetComponent<Animator>();
     }
 
@@ -27,16 +29,15 @@ public class PlayerBase : MonoBehaviour
         Jump();
         FlipSprite();
         CheckGrounded();
+        CheckFalling();
+        Debug.Log(rb.velocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 13) //Danger layer
+        if (collision.gameObject.tag == "Danger")
         {
-            if (!hasAtLeastOneComponent)
-            {
-                Destroy(gameObject);
-            }
+            fc.DropWeapons();
         }
     }
 
@@ -76,6 +77,18 @@ public class PlayerBase : MonoBehaviour
         else
         {
             anim.SetBool("isInAir", false);
+        }
+    }
+
+    private void CheckFalling()
+    {
+        if (!grndCheck && rb.velocity.y < 0f)
+        {
+            anim.SetBool("isFalling", true);
+        }
+        else
+        {
+            anim.SetBool("isFalling", false);
         }
     }
 
