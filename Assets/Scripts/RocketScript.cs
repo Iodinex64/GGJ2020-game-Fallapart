@@ -7,7 +7,7 @@ public class RocketScript : MonoBehaviour
 
     public bool isEquipped = false;
     public SpriteRenderer flameSpr;
-    private bool canJump;
+    private bool canJump, canBoost;
     public PlayerBase pl;
     public Rigidbody2D plRB;
 
@@ -34,18 +34,23 @@ public class RocketScript : MonoBehaviour
         if (pl.grndCheck)
         {
             canJump = true;
+            canBoost = true;
         }
 
         if (Input.GetButtonDown("Jump") && isEquipped)
         {
             if (!pl.grndCheck)
             {
-                plRB.velocity = Vector2.zero;
-                Vector2 jumpVelVect = new Vector2(0f, pl.jumpHeight/2);
-                plRB.velocity += jumpVelVect;
-                flameSpr.gameObject.SetActive(true);
-                Invoke("TurnOffFlame", 0.5f);
-                canJump = false;
+                if (canBoost)
+                {
+                    plRB.velocity = Vector2.zero;
+                    Vector2 jumpVelVect = new Vector2(0f, pl.jumpHeight);
+                    canBoost = false;
+                    plRB.velocity += jumpVelVect;
+                    flameSpr.gameObject.SetActive(true);
+                    Invoke("TurnOffFlame", 0.5f);
+                    canJump = false;
+                }
             }
         }
     }
