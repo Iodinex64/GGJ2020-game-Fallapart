@@ -15,6 +15,7 @@ public class PlayerBase : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private FindComponents fc;
+    private bool MarkForDeath = false;
 
     void Start()
     {
@@ -30,7 +31,6 @@ public class PlayerBase : MonoBehaviour
         FlipSprite();
         CheckGrounded();
         CheckFalling();
-        Debug.Log(rb.velocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,6 +38,19 @@ public class PlayerBase : MonoBehaviour
         if (collision.gameObject.tag == "Danger")
         {
             fc.DropWeapons();
+            Invoke("MarkForDeathMethod", 3f);
+            if (!hasAtLeastOneComponent && MarkForDeath)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    void MarkForDeathMethod()
+    {
+        if (!hasAtLeastOneComponent)
+        {
+            MarkForDeath = true;
         }
     }
 

@@ -23,6 +23,7 @@ public class FindComponents : MonoBehaviour
             if (g.CompareTag("gun") || g.CompareTag("torch") || g.CompareTag("rocket"))
             {
                 g.GetComponent<Rigidbody2D>().isKinematic = false;
+                g.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                 g.GetComponent<BoxCollider2D>().isTrigger = false;
                 g.transform.parent = null;
             }
@@ -44,6 +45,7 @@ public class FindComponents : MonoBehaviour
             collision.transform.rotation = Quaternion.identity;
             currentCollisions.Add(collision.gameObject);
             collision.attachedRigidbody.isKinematic = true;
+            collision.attachedRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
             collision.GetComponent<BoxCollider2D>().isTrigger = true;
             collision.transform.position = Rjoint.position;
             collision.transform.localScale = pl.transform.localScale;
@@ -57,6 +59,7 @@ public class FindComponents : MonoBehaviour
             collision.transform.rotation = Quaternion.identity;
             currentCollisions.Add(collision.gameObject);
             collision.attachedRigidbody.isKinematic = true;
+            collision.attachedRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
             collision.GetComponent<BoxCollider2D>().isTrigger = true;
             collision.transform.position = Ujoint.position;
             collision.transform.localScale = pl.transform.localScale;
@@ -70,6 +73,7 @@ public class FindComponents : MonoBehaviour
             collision.transform.rotation = Quaternion.identity;
             currentCollisions.Add(collision.gameObject);
             collision.attachedRigidbody.isKinematic = true;
+            collision.attachedRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
             collision.GetComponent<BoxCollider2D>().isTrigger = true;
             collision.transform.position = Ljoint.position;
             collision.transform.localScale = pl.transform.localScale;

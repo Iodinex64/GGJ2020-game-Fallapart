@@ -21,7 +21,7 @@ public class TorchScript : MonoBehaviour
     void ManageLightLevels()
     {
         if (isEquipped)
-        {
+        { 
             gLight.intensity = 0.45f;
         }
         else

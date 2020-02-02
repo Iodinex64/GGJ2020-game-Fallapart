@@ -15,7 +15,7 @@ public class RocketScript : MonoBehaviour
     {
         pl = FindObjectOfType<PlayerBase>();
         plRB = FindObjectOfType<PlayerBase>().GetComponent<Rigidbody2D>();
-        InvokeRepeating("SpinFlame", 0f, 0.12f);
+        InvokeRepeating("SpinFlame", 0f, 0.0333f);
         TurnOffFlame();
     }
 
@@ -38,9 +38,10 @@ public class RocketScript : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isEquipped)
         {
-            if (!pl.grndCheck && canJump)
+            if (!pl.grndCheck)
             {
-                Vector2 jumpVelVect = new Vector2(0f, pl.jumpHeight);
+                plRB.velocity = Vector2.zero;
+                Vector2 jumpVelVect = new Vector2(0f, pl.jumpHeight/2);
                 plRB.velocity += jumpVelVect;
                 flameSpr.gameObject.SetActive(true);
                 Invoke("TurnOffFlame", 0.5f);
