@@ -10,6 +10,9 @@ public class RocketScript : MonoBehaviour
     private bool canJump, canBoost;
     public PlayerBase pl;
     public Rigidbody2D plRB;
+    [SerializeField]
+    private AudioClip rocketSound;
+    private AudioSource audioRocket;
 
     private void Start()
     {
@@ -17,6 +20,7 @@ public class RocketScript : MonoBehaviour
         plRB = FindObjectOfType<PlayerBase>().GetComponent<Rigidbody2D>();
         InvokeRepeating("SpinFlame", 0f, 0.0333f);
         TurnOffFlame();
+        audioRocket = GetComponent<AudioSource>();
     }
 
     private void TurnOffFlame()
@@ -50,6 +54,7 @@ public class RocketScript : MonoBehaviour
                     flameSpr.gameObject.SetActive(true);
                     Invoke("TurnOffFlame", 0.5f);
                     canJump = false;
+                    audioRocket.PlayOneShot(rocketSound);
                 }
             }
         }

@@ -8,6 +8,9 @@ public class PlayerBase : MonoBehaviour
     public float moveSpeed = 5f;
     public bool facingRight;
     public bool grndCheck;
+    [SerializeField]
+    private AudioClip jumpSound;
+    private AudioSource audioAOE; 
     private bool inAirCheck;
     public float jumpHeight;
     public LayerMask grndLayer;
@@ -22,6 +25,7 @@ public class PlayerBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         fc = FindObjectOfType<FindComponents>();
         anim = GetComponent<Animator>();
+        audioAOE = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -89,6 +93,7 @@ public class PlayerBase : MonoBehaviour
         {
             Vector2 jumpVelVect = new Vector2(0f, jumpHeight);
             rb.velocity += jumpVelVect;
+            audioAOE.PlayOneShot(jumpSound);
         }
 
         if (!grndCheck)
