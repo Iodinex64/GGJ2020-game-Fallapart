@@ -57,6 +57,24 @@ TagManager:
   - name: Background
     uniqueID: 328936857
     locked: 0
+  - name: Mid Layer
+    uniqueID: 3369879703
+    locked: 0
   - name: Foreground
     uniqueID: 768732765
+    locked: 0
+  - name: Enemy
+    uniqueID: 3468630791
+    locked: 0
+  - name: Hazard
+    uniqueID: 264907477
+    locked: 0
+  - name: Player
+    uniqueID: 868557139
+    locked: 0
+  - name: Detail Layer
+    uniqueID: 2426953647
+    locked: 0
+  - name: EXTRA
+    uniqueID: 2025735605
     locked: 0
